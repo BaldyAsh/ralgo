@@ -1,3 +1,5 @@
+// O(nlogn) - time, O(n) - additional memory
+
 pub fn mergesort<T: PartialOrd + Copy>(array: Vec<T>, mut buffer: Vec<T>, left: usize, right: usize) -> Vec<T> {
     if left == right {
         if array.len() > 0 {

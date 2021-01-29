@@ -1,37 +1,28 @@
-// O(n^2) - worst, mid, best time, O(n) - main memory, O(1) - additional memory
+// O(n^2) - worst time, O(n^2) - common time, O(n) - best time for compare, O(1) - best time for swap, O(n) main memory + 0(1) additional memory
 
-pub fn selectsort<T: PartialOrd + Copy>(array: &mut [T], len: usize) {
-    for i in 0 .. len {
-        let mut k = i;
-        let mut x = array[i];
-
-        for j in i + 1 .. len {
-            if array[j] < x {
-                k = j;
-                x = array[j];
-            }
+pub fn insertionsort<T: PartialOrd + Copy>(array: &mut [T], len: usize) {
+    for i in 1 .. len {
+        let x = array[i];
+        let mut j = i;
+        
+        while j > 0 && array[j - 1] > x {
+            array[j] = array[j - 1];
+            j -= 1;
         }
-
-        swap(array, i, k);
+        array[j] = x;
     }
-}
-
-fn swap<T: Copy>(array: &mut [T], a: usize, b: usize) {
-    let temp = array[a];
-    array[a] = array[b];
-    array[b] = temp;
 }
 
 #[cfg(test)]
 mod tests {
-    use super::selectsort;
+    use super::insertionsort;
 
     #[test]
     fn test0() {
         let mut vpoints: Vec<usize> = vec![];
         let points = vpoints.as_mut_slice();
 
-        selectsort(points, 0);
+        insertionsort(points, 0);
 
         assert_eq!(points, vec![].as_slice());
     }
@@ -41,7 +32,7 @@ mod tests {
         let mut vpoints: Vec<usize> = vec![1, 5, 9, 1221, 0, 12, 4, 5, 4];
         let points = vpoints.as_mut_slice();
 
-        selectsort(points, 9);
+        insertionsort(points, 9);
 
         assert_eq!(points, vec![0, 1, 4, 4, 5, 5, 9, 12, 1221].as_slice());
     }
@@ -51,7 +42,7 @@ mod tests {
         let mut vpoints: Vec<usize> = vec![0, 0, 0, 0, 0];
         let points = vpoints.as_mut_slice();
 
-        selectsort(points, 5);
+        insertionsort(points, 5);
 
         assert_eq!(points, vec![0, 0, 0, 0, 0].as_slice());
     }
@@ -61,7 +52,7 @@ mod tests {
         let mut vpoints: Vec<usize> = vec![1, 1, 1, 0, 0, 0];
         let points = vpoints.as_mut_slice();
 
-        selectsort(points, 6);
+        insertionsort(points, 6);
 
         assert_eq!(points, vec![0, 0, 0, 1, 1, 1].as_slice());
     }
@@ -71,7 +62,7 @@ mod tests {
         let mut vpoints: Vec<usize> = vec![1, 5, 9, 1221, 0, 12, 4];
         let points = vpoints.as_mut_slice();
 
-        selectsort(points, 7);
+        insertionsort(points, 7);
 
         assert_eq!(points, vec![0, 1, 4, 5, 9, 12, 1221].as_slice());
     }
@@ -81,7 +72,7 @@ mod tests {
         let mut vpoints: Vec<usize> = vec![1, 2, 3, 4, 5];
         let points = vpoints.as_mut_slice();
 
-        selectsort(points, 5);
+        insertionsort(points, 5);
 
         assert_eq!(points, vec![1, 2, 3, 4, 5].as_slice());
     }
@@ -91,7 +82,7 @@ mod tests {
         let mut vpoints: Vec<usize> = vec![5, 4, 3, 2, 1];
         let points = vpoints.as_mut_slice();
 
-        selectsort(points, 5);
+        insertionsort(points, 5);
 
         assert_eq!(points, vec![1, 2, 3, 4, 5].as_slice());
     }

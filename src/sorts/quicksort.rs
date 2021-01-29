@@ -1,3 +1,5 @@
+// O(n^2) - worst, O(nlogn) - mid, O(n) - best time, O(n) - memory
+
 pub fn quicksort<T: PartialOrd + Copy>(array: &mut [T], lo: isize, hi: isize) {
     if lo < hi {
         let midpoint = partition(array, lo, hi);
