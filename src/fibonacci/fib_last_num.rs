@@ -1,7 +1,4 @@
-pub mod fib_last_num;
-pub mod fib_remainder;
-
-pub fn calc_fib(num: u64) -> u64 {
+pub fn fib_last_num(num: u64) -> u64 {
     if num <= 1 { return num; }
 
     let mut a = 0;
@@ -10,7 +7,7 @@ pub fn calc_fib(num: u64) -> u64 {
 
     for _ in 2 ..= num {
         c = b;
-        b = a + b;
+        b = (a + b) % 10;
         a = c;
     }
 
@@ -19,54 +16,61 @@ pub fn calc_fib(num: u64) -> u64 {
 
 #[cfg(test)]
 mod tests {
-    use super::calc_fib;
+    use super::fib_last_num;
 
     #[test]
     fn test0() {
-        let result = calc_fib(0);
+        let result = fib_last_num(0);
 
         assert_eq!(result, 0);
     }
 
     #[test]
     fn test1() {
-        let result = calc_fib(1);
+        let result = fib_last_num(1);
 
         assert_eq!(result, 1);
     }
 
     #[test]
     fn test2() {
-        let result = calc_fib(2);
+        let result = fib_last_num(2);
 
         assert_eq!(result, 1);
     }
 
     #[test]
     fn test3() {
-        let result = calc_fib(3);
+        let result = fib_last_num(3);
 
         assert_eq!(result, 2);
     }
 
     #[test]
     fn test4() {
-        let result = calc_fib(4);
+        let result = fib_last_num(4);
 
         assert_eq!(result, 3);
     }
 
     #[test]
     fn test5() {
-        let result = calc_fib(5);
+        let result = fib_last_num(5);
 
         assert_eq!(result, 5);
     }
 
     #[test]
     fn test6() {
-        let result = calc_fib(15);
+        let result = fib_last_num(15);
 
-        assert_eq!(result, 610);
+        assert_eq!(result, 0);
+    }
+
+    #[test]
+    fn test7() {
+        let result = fib_last_num(841645);
+
+        assert_eq!(result, 5);
     }
 }
