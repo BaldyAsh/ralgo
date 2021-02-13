@@ -18,7 +18,7 @@ pub fn calc_fib(num: u64) -> u64 {
 }
 
 #[cfg(test)]
-mod tests {
+mod tests_calc_fib {
     use super::calc_fib;
 
     #[test]

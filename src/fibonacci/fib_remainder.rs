@@ -15,7 +15,7 @@ pub fn fib_remainder(num: u64, div: u64) -> u64 {
 }
 
 #[cfg(test)]
-mod tests {
+mod tests_fib_remainder {
     use super::fib_remainder;
 
     #[test]

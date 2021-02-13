@@ -14,7 +14,7 @@ pub fn insertionsort<T: PartialOrd + Copy>(array: &mut [T], len: usize) {
 }
 
 #[cfg(test)]
-mod tests {
+mod tests_insertionsort {
     use super::insertionsort;
 
     #[test]

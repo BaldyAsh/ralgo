@@ -32,7 +32,7 @@ fn swap<T: Copy>(array: &mut [T], a: usize, b: usize) {
 }
 
 #[cfg(test)]
-mod tests {
+mod tests_shakersort {
     use super::shakersort;
 
     #[test]

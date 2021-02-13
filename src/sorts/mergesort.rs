@@ -44,7 +44,7 @@ pub fn mergesort<T: PartialOrd + Copy>(array: Vec<T>, mut buffer: Vec<T>, left: 
 }
 
 #[cfg(test)]
-mod tests {
+mod tests_mergesort {
     use super::mergesort;
 
     #[test]

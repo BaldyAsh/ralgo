@@ -42,7 +42,7 @@ fn swap<T: Copy>(array: &mut [T], a: isize, b: isize) {
 }
 
 #[cfg(test)]
-mod tests {
+mod tests_quicksort {
     use super::quicksort;
 
     #[test]

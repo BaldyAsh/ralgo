@@ -15,7 +15,7 @@ pub fn fib_last_num(num: u64) -> u64 {
 }
 
 #[cfg(test)]
-mod tests {
+mod tests_fib_last_num {
     use super::fib_last_num;
 
     #[test]
