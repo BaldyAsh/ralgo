@@ -38,7 +38,7 @@ impl PartialEq for Point {
     }
 }
 
-pub fn points_cover(lines: &Vec<(usize, usize)>) -> Vec<usize> {
+pub fn min_points_cover(lines: &Vec<(usize, usize)>) -> Vec<usize> {
     let lines = lines.clone();
 
     let len = lines.len();
@@ -80,8 +80,8 @@ pub fn points_cover(lines: &Vec<(usize, usize)>) -> Vec<usize> {
 
 
 #[cfg(test)]
-mod tests_points_cover {
-    use super::points_cover;
+mod tests_min_points_cover {
+    use super::min_points_cover;
 
     #[test]
     fn test0() {
@@ -93,7 +93,7 @@ mod tests_points_cover {
             (6, 8),
             (3, 4)
         ];
-        let points = points_cover(&lines);
+        let points = min_points_cover(&lines);
 
         assert_eq!(points, vec![3, 6]);
     }
@@ -105,7 +105,7 @@ mod tests_points_cover {
             (2, 5),
             (3, 6)
         ];
-        let points = points_cover(&lines);
+        let points = min_points_cover(&lines);
 
         assert_eq!(points, vec![3]);
     }
@@ -119,7 +119,7 @@ mod tests_points_cover {
             (2, 9),
             (1, 10)
         ];
-        let points = points_cover(&lines);
+        let points = min_points_cover(&lines);
 
         assert_eq!(points, vec![6]);
     }
@@ -133,7 +133,7 @@ mod tests_points_cover {
             (4, 5),
             (5, 6)
         ];
-        let points = points_cover(&lines);
+        let points = min_points_cover(&lines);
 
         assert_eq!(points, vec![2, 4, 6]);
     }
@@ -147,7 +147,7 @@ mod tests_points_cover {
             (7, 8),
             (9, 10)
         ];
-        let points = points_cover(&lines);
+        let points = min_points_cover(&lines);
 
         assert_eq!(points, vec![2, 4, 6, 8, 10]);
     }

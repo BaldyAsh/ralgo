@@ -1,1 +1,1 @@
-pub mod points_cover;
+pub mod min_points_cover;
